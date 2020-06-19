@@ -33,7 +33,7 @@ class EventForm extends Component {
     const {title, date, city, venue, hostedBy} = this.state;
     return (
       <Segment>
-        <Form onSubmit={this.handleFormSubmit}>
+        <Form onSubmit={this.handleFormSubmit} autoComplete='off'>
           <Form.Field>
             <label>Event Title</label>
             <input 
