@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Container } from 'semantic-ui-react';
 import EventDashboard from '../../event/EventDashboard/EventDashboard';
 import NavBar from '../../features/nav/NavBar/NavBar';
@@ -13,18 +13,24 @@ import EventForm from '../../event/EventForm/EventForm';
 class App extends Component  {
   render() {
     return (
-      <div className="App">
-        <NavBar />
-        <Container className="main">
-          <Route exact path='/' component={HomePage} />
-          <Route path='/events' component={EventDashboard} />
-          <Route path='/events/:id' component={EventDetailPage} />
-          <Route path='/people' component={PeopleDashboard} />
-          <Route path='/profile/:id' component={UserDetailedPage} />
-          <Route path='/settings' component={SettingsDashboard} />
-          <Route path='/createEvent' component={EventForm} />
-        </Container>
-      </div>
+      <Fragment>
+        {/* This turned the home page into a landing page outside of our app */}
+        <Route exact path='/' component={HomePage} />
+        <Route path='/(.+)' render={() => (
+          <Fragment className="App">
+            <NavBar />
+            <Container className="main">
+              <Route path='/events' component={EventDashboard} />
+              <Route path='/events/:id' component={EventDetailPage} />
+              <Route path='/people' component={PeopleDashboard} />
+              <Route path='/profile/:id' component={UserDetailedPage} />
+              <Route path='/settings' component={SettingsDashboard} />
+              <Route path='/createEvent' component={EventForm} />
+            </Container>
+          </Fragment>
+        )} 
+        />
+      </Fragment>
     );
   }
 }
