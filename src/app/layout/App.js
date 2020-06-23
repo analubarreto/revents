@@ -7,7 +7,7 @@ import { HomePage } from '../../features/home/HomePage';
 import { EventDetailPage } from '../../event/EventDetail/EventDetailPage';
 import { PeopleDashboard } from '../../features/user/PeopleDashboard/PeopleDashboard';
 import { UserDetailedPage } from '../../features/user/UserDetailed/UserDetailedPage';
-import { SettingsDashboard } from '../../features/user/Settings/SettingsDashboard';
+import SettingsDashboard from '../../features/user/Settings/SettingsDashboard';
 import EventForm from '../../event/EventForm/EventForm';
 
 class App extends Component  {
